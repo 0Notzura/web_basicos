@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+    }
+    /* body{
+        background-color: aquamarine;
+    } */
+    header{/* flexbetwen */
+        padding: 5px 0 5px 10px;
+        height: 50px;
+        background-color: white;
+        /* position: relative; */
+    }
+    header img{
+        margin-right: 10px;
+    }
+    #specs img{
+        width: 24px;
+    }
+    header h1{
+        display: inline-block;
+        line-height: 16px;
+    }
+    #menu{
+        position: absolute;
+        background-color: white;
+        top: 0;
+        transform: translateX(-240px);
+        padding: 20px;
+        width: 200px;
+        height: 100vh;
+        z-index:1;
+        transition: transform 0.5s ease;
+        
+    }
+    #menu img{
+        width: 16px;
+        margin-bottom: 40px;
+
+    }
+    #navmenu{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        height: 200px;
+        justify-content: space-between;
+        
+
+    }
+    #navmenu a{
+        text-decoration: none;
+        color: black;
+        font-size: 16px;
+        font-weight: bolder;
+        font-family: sans-serif;
+
+    }
+    .orange{
+        color: #ff7d1a;
+    }
+    #section_img{
+        position: relative;
+        overflow: hidden;
+        z-index: 0;
+        max-width: 500px;
+    }
+    #carrousel{
+        position: relative;
+        transition: transform 0.5s ease-in-out;
+        transform: translateX(0);
+        display: flex;
+    }
+    #carrousel img{
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    #back,#next{/* flexcenter */
+        overflow: hidden;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        border-radius: 50%;
+        top:50%;
+        transform: translateY(-50%);
+    }
+    #back:active,#next:active{
+        background-color: rgb(181, 176, 176);
+    }
+
+    #back{
+        left: 10px;
+    }
+    #next{
+        right: 10px;
+    }
+    #back img,#next img{
+        width: 10px;
+        height: min-content;
+    }
+    #section_description p{
+        margin: 10px 20px;
+        font-display: initial;
+    }
+    h2{
+        margin: 0 20px;
+    }
+    #section_buy{
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        height: 180px;
+        justify-content: space-around;
+    }
+    
+    h3{
+        font-size: 28px;
+    }
+    .line{/* flexbetwen */
+        width: 160px;
+    }
+    #discount{/* flexcenter */
+        background-color: rgba(231, 176, 73,0.5);
+        width: 48px;
+        height: 24px;
+        border-radius: 5px;
+        font-weight: bold;
+        
+    }
+    #oldprice{
+        text-decoration:line-through ;
+        color:rgb(193, 198, 198);
+        font-weight: bold;
+    }
+    #qtd{/* flexbetwen */
+        width: calc(100%-20px);
+        height: 50px;
+        background-color: rgb(233, 239, 239);
+        border-radius: 10px;
+        padding: 0 10px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    button{/* flexcenter */
+        width: 100%;
+        height: 50px;
+        background-color: #ff7d1a;
+        color: white;
+        border-radius: 10px;
+        border: none;
+    }
+    button img{
+        margin: 10px;
+    }
+    .flexbetwen{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .flexcenter{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .logo{
+        width: 50px;
+        border-radius: 5px;
+    }
+    #cart{
+        display: none;
+        position: absolute;
+        width: 95%;
+        height: 85%;
+        border-radius: 10px;
+        top:12%;
+        right: 2.5%;
+        z-index: 1;
+        background-color: white;
+        box-shadow:  0 30px 20px -10px  rgba(11, 11, 11,0.3);
+        max-width: 400px;
+        max-height: 250px;
+
+    }
+    #cart > p:first-child {
+        font-weight: bold;
+        padding: 20px;
+        border-bottom: 1px solid rgba(11, 11, 11,0.3);
+        
+    }
+    .test{
+        display: none;
+        height: calc(85% - 61.4px); 
+    }
+    #cartproduct {
+        display: none;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        height: 30%;
+        margin: auto;
+        
+    }
+    #cartproduct p{
+        font-weight: normal;
+        display: block;
+        border: none;
+        margin-top: 50%;
+        transform: translateY(-50%);
+        font-weight: bold;
+    }
+    
+    .logo{
+        width: 50px;
+        border-radius: 5px;
+    }
+    #delete{
+        width: 15px;
+    }
+    #cartproducttext p{
+        font-weight: normal;
+        display: block;
+        border: none;
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+    }
+    #cartbutton{
+        display: none;
+        width: 80%;
+        margin-left: 10%;
+    }
+    #container_navimg{
+        display: none ;
+    }
+    @media(max-width:500px){
+        #backmenu{
+        display: none;
+        position: absolute;
+        background-color: rgba(11, 11, 11,0.5);
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+    } 
+    }
+    @media(min-width:500px){
+        header{
+            margin: auto;
+            width: 80%;
+            border-bottom: 2px solid rgba(107, 107, 107, 0.2);
+            padding: 0 10px;
+        }
+        #section_img{
+            border-radius: 10px;
+            
+        }
+        main{
+            width: 80%;
+            margin: auto;
+            display: flex;
+            margin-top: 80px;
+            min-width: 780px;
+        }
+        #section_description{
+            width: 90%;
+            margin-bottom: 50px;
+        }  
+        
+        #section_description h2{
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+        .section_all{
+            margin-top: 50px;
+            margin-left:50px ;
+            width: 40%;
+        }
+        
+        #section_buy{
+            margin:auto;
+            width: 90%;
+        }
+        #price{
+            margin-bottom: 30px;
+        }
+        .flexbetwen2{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        #qtd{
+            width: 50%;
+            min-width: 80px;
+            margin-right: 5%;
+        }
+        #back,#next{
+            display: none;
+        }
+        #oldprice{
+            margin-top: 10px;
+        }
+        .block{
+            display: block;
+        }
+        #btnadd{
+            min-width: 90px;
+        }
+        #cart{
+            box-shadow:  0px 5px 20px 5px rgba(11, 11, 11,0.3);
+        }
+        #container_navimg{
+            display: block;
+            width: 80%;
+            margin:auto;
+            margin-top: 20px;
+            min-width: 780px;
+        }
+        #navimg{
+            display: flex;
+            justify-content: space-between;
+            width: 500px;
+        }
+        #navimg img{
+            width: 100px;
+            border-radius: 10px;
+
+        }
+        #iconmenu{
+            display: none;
+        }
+        #menu{
+            display: inline;
+            transform: none;
+            flex-direction:row ;
+            position: static;
+            padding: 0;
+            position: absolute;
+            max-height: 20px;
+            top: 15px;
+            left: calc(10% + 141px);
+        }
+        #closemenu{
+            display: none;
+        }
+        #navmenu{
+            flex-direction: row;
+            height: min-content;
+            width: 400px;
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+        }
+        #navmenu a:hover{
+            padding-bottom: 16.5px;
+            border-bottom: 2.4px solid #ff7d1a;
+        }
+        #carrousel img{
+            border-radius: 10px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <header class="flexbetwen">
+        <div>
+            <img id="iconmenu" src="ecommerce-product-page-main/images/icon-menu.svg" alt="">
+            <h1>sneaker</h1>
+        </div>
+        <div id="backmenu">
+            <div id="menu">
+                <img id="closemenu" src="ecommerce-product-page-main/images/icon-close.svg" alt="">
+                <nav id="navmenu">
+                    <a href="">collections</a>
+                    <a href="">men</a>
+                    <a href="">Women</a>
+                    <a href="">About</a>
+                    <a href="">Contract</a>
+                </nav>
+            </div>
+        </div>
+        <div id="specs">
+        <img id="iconcart" src="ecommerce-product-page-main/images/icon-cart.svg" alt="">
+        <img src="ecommerce-product-page-main/images/image-avatar.png" alt="">
+        </div>
+        <div id="cart">
+             <p>Cart</p>
+            <p class="test flexcenter">Your cart is empty</p> 
+           <div id="cartproduct" >
+               <img class="logo"src="ecommerce-product-page-main/images/image-product-1.jpg" alt="">
+               <div id="cartproducttext">
+                       <p>Fall Limited Edition Sneakers</p>
+                       <p id="cartprice"></p>
+               </div>
+               <img id="delete" src="ecommerce-product-page-main/images/icon-delete.svg" alt="">
+           </div>
+           <button id="cartbutton">
+               Checkout
+           </button>
+       </div>
+    </header>
+    <main>
+        <section id="section_img">
+            <div id="carrousel">
+                <img src="ecommerce-product-page-main/images/image-product-1.jpg" alt="">
+                <img src="ecommerce-product-page-main/images/image-product-2.jpg" alt="">
+                <img src="ecommerce-product-page-main/images/image-product-3.jpg" alt="">
+                <img src="ecommerce-product-page-main/images/image-product-4.jpg" alt="">
+            </div>
+            <div id="next" class="flexcenter"><img src="ecommerce-product-page-main/images/icon-next.svg" alt=""></div>
+            <div id="back" class="flexcenter"><img  src="ecommerce-product-page-main/images/icon-previous.svg" alt=""></div>
+
+        </section>
+        <div class="section_all">
+        <section id="section_description">
+            <p class="orange">sneaker company</p>
+            <h2>
+                Fall Limited Edition Sneakers
+            </h2>
+            <p>
+                These low-profile sneakers are your perfect casual wear companion. Featuring a 
+                durable rubber outer sole, they’ll withstand everything the weather can offer.
+            </p>
+        </section>
+        <!--//////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <section id="section_buy">
+            <div id="price" class="flexbetwen block">
+                <div class="line flexbetwen">
+                    <h3>$125.00</h3>
+                    <div id="discount" class="flexcenter orange">
+                        50%
+                    </div>
+                </div>
+                <p id="oldprice">$250.00</p>
+            </div>
+            <div class="flexbetwen2">
+            <div id="qtd" class="flexbetwen ">
+                <img id="minus" src="ecommerce-product-page-main/images/icon-minus.svg" alt="">
+                <p>0</p>
+                <img id="plus" src="ecommerce-product-page-main/images/icon-plus.svg" alt="">
+            </div>
+            <button id="btnadd" class="flexcenter">
+                <img src="ecommerce-product-page-main/images/icon-cart.svg" alt="">
+                Add to cart
+            </button>
+        </div>
+        </section>
+    </div>
+    </main>
+    <div id="container_navimg">
+        <div id="navimg">
+            <img id="0" src="ecommerce-product-page-main/images/image-product-1-thumbnail.jpg" alt="">
+            <img id="1" src="ecommerce-product-page-main/images/image-product-2-thumbnail.jpg" alt="">
+            <img id="2" src="ecommerce-product-page-main/images/image-product-3-thumbnail.jpg" alt="">
+            <img id="" src="ecommerce-product-page-main/images/image-product-4-thumbnail.jpg" alt="">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
