@@ -1,0 +1,14 @@
+.container{
+    width: 300px;
+    margin: auto;
+    background-color: aqua;
+    border-radius: 5px;
+    padding: 10px;
+}
+input{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    margin-bottom: 10px;
+}
