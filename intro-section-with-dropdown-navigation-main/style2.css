@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+a{
+    text-decoration: none;
+    color: hsl(0, 0%, 41%);
+  }
+br{display:none}
+header{
+    padding:20px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.icon{
+    font-size: 30px;
+}
+
+  input{
+    display: none;
+  }
+  #ip2:checked +li>ul{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    width: 100px;
+  }
+  #ip3:checked +li>ul{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    width: 100px;
+  }
+  .container{
+    position: absolute;
+    right: 0;
+    display: none;
+    background-color: white;
+  }
+  #ip1:checked + .blackback>.container{
+    padding-left: 5%;
+    width: 60%;
+    height: 100vh;
+    display: block;
+  }
+  #ip1:checked + .blackback{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color:rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 200vh;
+    display: block;
+  }
+  .blackback{
+    display: none;
+  }
+
+.content{
+    text-align: center;
+    padding-top: 250px;
+    background-image: url(images/image-hero-mobile.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.content h2{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.images{
+    display: flex;
+    justify-content: space-evenly;
+}
+.images img{
+    height: 15px;
+}
+.button {
+    display: inline-block;
+    border: 2px solid black ;
+    border-radius: 10px;
+    text-decoration: none;
+    padding: 5px 10px;
+    margin-left: 20px;
+    text-align: center;
+  }
+  .content .button{
+    width: 90px;
+    margin: 20px 0;
+    background-color:hsl(0, 0%, 8%);
+    color: white;
+  }
+  .content .button:hover{
+    background-color: white;
+    color:hsl(0, 0%, 8%);
+  }
+
+  .menu{
+    margin-top: 15px;
+  }
+  .menu >li{
+    display:inline-block;
+    margin:20px 95% 0 5%;
+  }
+
+  .features,.company{
+    display: none;
+  }
+  .nav2>ul>li{
+    width: 110px;
+    text-align: left;
+    margin-top: 20px; 
+  }
+  .nav2>ul>li>a>img{
+    margin-right: 15px;
+  }
+  .user{
+    width: 176px;
+    margin-top: 30px;
+    transform: translateX(-13.55px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .user .button{
+    margin:0;
+    width: 60%;
+  }
+  .imgmen{
+    position: absolute;
+    right:10px;
+    top:15px;
+  }
